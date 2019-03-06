@@ -1,0 +1,1 @@
+function getUrlParam(t){var a=new RegExp("(^|&)"+t+"=([^&]*)(&|$)"),o=window.location.search.substr(1).match(a);return null!=o?o[2]:null}function setLocalStorage(t,a){window.localStorage?window.localStorage.setItem(t,a):alert("浏览器不支持")}
