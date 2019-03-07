@@ -5,7 +5,7 @@
 var fs = require('fs')
 var crypto = require('crypto')
 var debug = true
-var md5_path = './fileList.json' // 记录js文件, css文件名及其MD5值
+var md5_path = './fileList.json' // 记录js，css文件名及其MD5值(此文件内容勿随意删除)
 var js_root_path = './dist/js'  //存放js文件的根目录
 var css_root_path = './dist/css' // 存放css文件的根目录
 var html_root_path = './' // 存放html文件的根目录
@@ -51,9 +51,11 @@ var dealFile = {
     return new RegExp(reg)
   },
   createElist:function(elist, name, type, md5){
-    elist[name] = {}
-    elist[name]['type'] = type
-    elist[name]['md5'] = md5
+    if(md5){
+      elist[name] = {}
+      elist[name]['type'] = type
+      elist[name]['md5'] = md5
+    }
   }
 }
 
@@ -161,8 +163,7 @@ if(html_files && reg_arr.length){
     }
   })
 }
-exports.result = editList
-
+//异步方式处理文件（有bug）
 // var editList = []; // 文件更新列表
 // 文件操作封装成对象
 // var dealFile = {
