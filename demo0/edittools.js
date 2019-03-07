@@ -47,7 +47,7 @@ var dealFile = {
     return crypto.createHash('md5').update(data, 'utf8').digest('hex');
   },
   dealreg: function(name){
-    let reg = '\/'+ name.replace('.','\\.') +'\\?v=.*"'
+    let reg = '\/'+ name.replace('.','\\.') +'\.*"'
     return new RegExp(reg)
   },
   createElist:function(elist, name, type, md5){
@@ -120,13 +120,12 @@ var keys = Object.keys(editList);
 var reg_arr = (function(){
   let arr = []
   keys.forEach(item => {
-    console.log("fjeijfijrifjirj")
-    console.log(item)
     let obj = {}
-    if(editList[item]['type'] === 'edit'){
+    if(editList[item]['type'] !== 'del'){
       obj['name'] = item
       obj['reg'] = dealFile.dealreg(item)
       obj['md5'] = editList[item]['md5']
+      obj['type'] = editList[item]['type']
       arr.push(obj)
     }
   })
@@ -152,17 +151,13 @@ html_files = dealFile.rDir(html_root_path)
 if(html_files && reg_arr.length){
   html_files.forEach(item => {
     if(item.indexOf('.html')>0){
-      fs.readFile(html_root_path + item, 'utf8', function(err, data){
-        if(err) throw err
-        reg_arr.forEach(reg => {
-          if(data.match(reg['reg'])){
-            var editdata = data.replace(reg['reg'], '/'+reg['name']+'?v='+reg['md5']+'"')
-            fs.writeFile(item, editdata, function(err){
-              if(err) throw err
-            })
-          };
-        })
+      var data = dealFile.rFile(html_root_path + item)
+      reg_arr.forEach(reg => {
+        if(data.match(reg['reg'])){
+          data = data.replace(reg['reg'], '/'+reg['name']+'?v='+reg['md5']+'"')
+        };
       })
+      dealFile.wFile(item, data)
     }
   })
 }
