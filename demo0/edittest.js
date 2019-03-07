@@ -1,3 +1,4 @@
+// 测试专用文件
 // var r = require('./edittools.js')
 // console.log(r.result)
 // function dealreg(name){
