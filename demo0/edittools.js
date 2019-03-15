@@ -24,6 +24,9 @@ var new_md5_json = Object.create(null); // 存储处理后的文件MD5值列表�
 new_md5_json['images'] = Object.create(null); // 存储处理后的图片MD5值列表
 var editList; // 返回结果
 
+// 临时测试专用
+// var fobj = Object.create(null)
+
 // 文件操作功能函数
 var dealFile = {
   rFile: function(path){
@@ -54,7 +57,7 @@ var dealFile = {
     return crypto.createHash('md5').update(data, 'utf8').digest('hex');
   },
   dealreg: function(name){
-    let reg = '\\W'+name.replace(/\//g,'\/').replace('.','\\.') +'(|\\?v=\.*~)"';
+    let reg = '(\\/|)'+name.replace(/\//g,'\/').replace('.','\\.') + '(\\?v=(\\w){0,32}|)';
     return new RegExp(reg, 'g')
   },
   createElist:function(elist, name, type, md5){
@@ -206,14 +209,9 @@ if(html_files && reg_arr.length){
       reg_arr.forEach(reg => {
         var match = data.match(reg['reg'])
         if(match){
-          console.log(item)
-          console.log(reg['name'])
-          console.log(match)
-          for(let i = 0; i < match.length; i++){
-            let n = match[i].split('?v=')[0];
-            let restr = n[0] === '"' ? '"'+n.replace(/"/g,'')+'?v='+reg['md5']+'~"' : n.replace('"','')+'?v='+reg['md5']+'~"'
-            data = data.replace(match[i], restr)
-          }
+          let restr = match[0].indexOf('?v=') > 0 ? match[0].replace(/\?v=(\w){32}/, '?v='+reg['md5']) : match[0]+'?v='+reg['md5']
+          let r = new RegExp(match[0].replace(/\//g, '\\/').replace('.', '\\.').replace('?','\\?'),'g')
+          data = data.replace(r, restr)
         }
       })
       dealFile.wFile(item, data)
