@@ -1,0 +1,115 @@
+@charset "utf-8";
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+body {
+	font-family: "Microsoft YaHei";
+	background-color: #fff;
+}
+
+html {
+	font-family: "Microsoft YaHei";
+	background-color: #fff;
+}
+
+@font-face {
+	font-family: nubFont;
+	src: url("../fonts/GothamBook.ttf")
+}
+
+.tc {
+	text-align: center;
+}
+
+.mui-content {
+	background-color: #fff;
+	-webkit-overflow-scrolling: touch;
+}
+
+
+/*placeholderé¢œè‰²*/
+
+::-webkit-input-placeholder {
+	/* WebKit browsers */
+	color: #cbcbcb !important;
+}
+
+:-moz-placeholder {
+	/* Mozilla Firefox 4 to 18 */
+	color: #cbcbcb !important;
+}
+
+::-moz-placeholder {
+	/* Mozilla Firefox 19+ */
+	color: #cbcbcb !important;
+}
+
+:-ms-input-placeholder {
+	/* Internet Explorer 10+ */
+	color: #cbcbcb !important;
+}
+
+.img_wrap {
+	margin-top: 7.65rem;
+}
+
+.img_wrap img {
+	width: 50%;
+}
+
+input[type=text] {
+	font-size: 1.3rem;
+	/*margin-left: 1rem;
+	width: 93% !important;*/
+	color: #292929;
+	border-radius: 4px !important;
+	background-color: #fafafa !important;
+	border: solid 1px #e4e4e4 !important;
+	margin-bottom: 0.65rem !important;
+	height: 4rem;
+	margin-top: 1.55rem;
+}
+
+.mui-btn {
+	margin: 4.55rem auto;
+	padding: 0;
+	background: #292928;
+	color: #ffda43;
+	border-color: #292928;
+	border-radius: 5px;
+	width: 100%;
+	font-weight: bold;
+	height: 4.5rem;
+	line-height: 4.5rem;
+	margin-bottom: 3.5rem;
+	font-size: 1.5rem;
+	letter-spacing: 0.47rem;
+	margin-bottom: 0;
+}
+
+.mui-btn-primary:enabled:active {
+	color: #ffda43;
+	border-color: #292928;
+	background: #292928;
+}
+
+.mes_wrap {
+	padding: 7rem 3rem;
+}
+
+.mes_wrap h4 {
+	font-size: 1.4rem;
+	text-align: left;
+	color: #292929;
+	font-weight: bolder;
+}
+
+.mes_wrap p {
+	font-size: 1.2rem;
+	margin-bottom: 0;
+	color: #a6a6a6;
+	line-height: 1.8rem;
+}
