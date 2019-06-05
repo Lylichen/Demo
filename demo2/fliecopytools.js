@@ -4,7 +4,7 @@ var rpath = 'E:\\selfRepository\\' //新文件夹
 var list = []
 var lnum = 0
 var rnum = 0
-// 递归判断连个文件大小是否一致（可能会出现复制过程中某个文件丢失）
+// 递归判断两个文件大小是否一致（可能会出现复制过程中某个文件丢失）
 var fstools = {
     readDir:function(path, flag){
         let res = null

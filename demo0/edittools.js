@@ -2,10 +2,6 @@
  * @returns 修改后的html文件
  * @description 修改html文件中js,css的版本号
  */
-/**
- * @returns 修改后的html文件
- * @description 修改html文件中js,css的版本号
- */
 var fs = require('fs')
 var crypto = require('crypto')
 var path = require('path')
@@ -178,7 +174,7 @@ var reg_arr = (function(){
     if(editList[item]['type'] !== 'del'){
       obj['name'] = item
       obj['reg'] = dealFile.dealreg(item)
-      obj['md5'] = editList[item]['md5']
+      obj['md5'] = editList[item]['md5'].substr(0, 10)
       obj['type'] = editList[item]['type']
       arr.push(obj)
     }
@@ -209,7 +205,7 @@ if(html_files && reg_arr.length){
       reg_arr.forEach(reg => {
         var match = data.match(reg['reg'])
         if(match){
-          let restr = match[0].indexOf('?v=') > 0 ? match[0].replace(/\?v=(\w){32}/, '?v='+reg['md5']) : match[0]+'?v='+reg['md5']
+          let restr = match[0].indexOf('?v=') > 0 ? match[0].replace(/\?v=(\w){10}/, '?v='+reg['md5']) : match[0]+'?v='+reg['md5']
           let r = new RegExp(match[0].replace(/\//g, '\\/').replace('.', '\\.').replace('?','\\?'),'g')
           data = data.replace(r, restr)
         }
