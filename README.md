@@ -1,14 +1,14 @@
 # Demo
 
 #### 介绍
-[demo0](https://gitee.com/Ly_lichen/Demo/tree/master/demo0)：检测项目js，css文件，若有更改则在html页面中修改js，css资源文件的版本号
+[demo0](https://github.com/Lylichen/Demo/tree/master/demo0)：检测项目js，css文件，若有更改则在html页面中修改js，css资源文件的版本号
       （用于传统写法项目中需要手动修改版本号的情况）(ps：包括html文件中引用到的图片)
       
-[demo1](https://gitee.com/Ly_lichen/Demo/tree/master/demo1)：使用webpack搭建的一个多入口多出口项目框架demo（练习专用）
+[demo1](https://github.com/Lylichen/Demo/tree/master/demo1)：使用webpack搭建的一个多入口多出口项目框架demo（练习专用）
 
-[demo2](https://gitee.com/Ly_lichen/Demo/tree/master/demo2)：使用nodejs检测两个文件是否一致（ps:在复制文件夹的时候会出现文件夹里的文件复制不了的情况，突发奇想写的一个工具主要检测哪些文件没有完成复制）
+[demo2](https://github.com/Lylichen/Demo/tree/master/demo2)：使用nodejs检测两个文件是否一致（ps:在复制文件夹的时候会出现文件夹里的文件复制不了的情况，突发奇想写的一个工具主要检测哪些文件没有完成复制）
 
-[demo3](https://gitee.com/Ly_lichen/Demo/tree/master/demo3)：gulp处理image，js，css文件，并修改html中的资源文件版本号（ps:其中setHash根据gulp-rev-collector修改，）
+[demo3](https://github.com/Lylichen/Demo/tree/master/demo3)：gulp处理image，js，css文件，并修改html中的资源文件版本号（ps:其中setHash根据gulp-rev-collector修改，）
 
 #### 参与贡献
 
